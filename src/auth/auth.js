@@ -13,16 +13,22 @@ async function authentication(req, res, next) {
     if (!token) {
       return res.status(401).send({ status: false, message: "required token" });
     }
-
     jwt.verify(token, "plutonium_project3", (err, decoded) => {
       if (err) {
+        // let payload=JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString())
+        // console.log(payload)
+        //   if (payload.exp < (new Date().getTime() + 1) / 1000) {
+        //     return res
+        //       .status(401)
+        //       .send({ status: false, message: "token expired" });
+        //   }
         return res
           .status(401)
-          .send({ status: false, message: "invalid token or token expired" });
-      } else {
-        req.decoded = decoded;
-        next();
+          .send({ status: false, message: "invalid token" });
       }
+      req.decoded = decoded;
+
+      next();
     });
   } catch (error) {
     return res.status(500).send({ status: false, message: error.message });

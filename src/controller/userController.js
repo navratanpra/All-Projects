@@ -167,7 +167,7 @@ async function login(req, res) {
       {
         userId: document._id,
         batch: "plutonium",
-        exp: Math.floor(Date.now() / 1000) + 60 * 60,
+        exp: Math.floor(Date.now() / 1000) + 1 * 60,
       },
       "plutonium_project3"
     );
