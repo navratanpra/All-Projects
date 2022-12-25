@@ -6,6 +6,7 @@ const isValidEmail = (email) => {
     return regx.test(email)
 };
 
+// the value which we have given according to regx it will show true value otherwise it will give the false reaturn value
 //-------------------name--------------
 const isValidName = (name) => {
     const regx = /^[a-z ,.'-]+$/i
@@ -23,7 +24,6 @@ const isValidElem= (data) =>{
     if (typeof(data)==="string" && data.trim()=="" ) return false
     return true
 }
-
 
 
 module.exports = {  isValidEmail,isValidName,isValidElem ,isValidmobile }
