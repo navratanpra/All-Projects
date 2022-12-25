@@ -1,12 +1,12 @@
-const express = require("express");
-const router = express.Router();
+const express = require("express");  // express is like a framwork in which a inbuild router is presented  in express
+const router = express.Router();     //express ke through hum log router function ko require kar rahe hai us router name ke function ko router var me store kar rahe hai.
 const userController = require("../controller/userController");
 const bookController = require("../controller/bookController");
 const authContoller = require("../auth/auth");
 const reviewController = require("../controller/reviewController");
 const aws = require("aws-sdk");
 
-router.get("/test-me", function (req, res) {
+router.get("/test-me", function (req, res) {   //router name ka jo variable hai usko access kar rahe hai jo link no. 2 me require kiya hua .get method ka use kar ke usko jo data hai mango db me wo featch kar ke user ko deta hai
   res.send("this is successfully created");
 });
 
